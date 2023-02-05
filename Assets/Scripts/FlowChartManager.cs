@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Fungus;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class FlowChartManager : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class FlowChartManager : MonoBehaviour
     public GameObject[] goToActivegoToActive;
     public Camera cam;
     public static FlowChartManager Instance;
-
+    public string contra = "114avanti";
     private void Awake()
     {
         if (Instance == null)
@@ -40,6 +42,17 @@ public class FlowChartManager : MonoBehaviour
         SetSizeCam(10);
     }
 
+    public void CloseApp()
+    {
+        Application.Quit();
+    }
+    public void checkContra(TMP_InputField ip)
+    {
+        if (ip.text == contra)
+        {
+            OpenPuzleMusical();
+        }
+    }
     public void VerHabitacion()
     {
         SetSizeCam(50);
