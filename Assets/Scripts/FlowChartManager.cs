@@ -11,7 +11,7 @@ public class FlowChartManager : MonoBehaviour
 {
     public Flowchart fl;
     public GameObject[] goToActivegoToActive;
-
+    public Camera cam;
     public static FlowChartManager Instance;
 
     private void Awake()
@@ -26,8 +26,28 @@ public class FlowChartManager : MonoBehaviour
         }
     }
 
- 
+    public void SetSizeCam(int size)
+    {
+        cam.orthographicSize = size;
+    }
 
+    public GameObject pc;
+    public GameObject musica;
+    public void OpenPuzleMusical()
+    {
+        pc.SetActive(false);
+        musica.SetActive(true);
+        SetSizeCam(10);
+    }
+
+    public void VerHabitacion()
+    {
+        SetSizeCam(50);
+        foreach (var gb in goToActivegoToActive)
+        {
+            gb.SetActive(true);
+        }
+    }
     public void SetFlowChart(Flowchart flowchart)
     {
         fl = flowchart;
